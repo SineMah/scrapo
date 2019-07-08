@@ -13,8 +13,8 @@ class Dom {
             $posTerm = strrpos($index, '>' . $path);
             $posLastChiffre = strrpos($index, '>');
 
-            if($posTerm >= $posLastChiffre) {
-
+            if($posTerm > 0 && $posTerm >= $posLastChiffre) {
+                
                 $resultSet[] = $this->nodes[$index];
             }
         }
