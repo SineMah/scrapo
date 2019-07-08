@@ -1,0 +1,20 @@
+{
+    "name": "minced/scrapo",
+    "description": "yet another screen scraping tool",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sine",
+            "email": "bock.christian@mincedmind.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Scrapo\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
