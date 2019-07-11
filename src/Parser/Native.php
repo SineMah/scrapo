@@ -82,13 +82,6 @@ class Native implements ParserInterface {
      */
     protected function iterate($dom, Array $path = []) {
         $scrapoNode = $this->getNodeProperties($dom);
-        // $path = array_merge($path, [$scrapoNode->getPathChild()]);
-
-        // var_dump($path, $scrapoNode->getPathChild(), $scrapoNode);
-
-        // $this->dom->nodes[$this->buildPath($path)] = $scrapoNode;
-
-        // var_dump($this->buildPath($path));
 
         if($scrapoNode->hasChildNodes) {
 

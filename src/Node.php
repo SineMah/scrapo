@@ -16,6 +16,9 @@ class Node {
     public $hasChildNodes = '';
     public $hasAttributes = '';
 
+    /**
+     * @return string
+     */
     public function getPathChild() {
         $path = [$this->name];
 

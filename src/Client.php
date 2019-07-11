@@ -6,6 +6,9 @@ use http\Client\Request;
 
 class Client {
 
+    /**
+     * @var Dom|null
+     */
     protected $dom = null;
 
     /**
@@ -80,11 +83,18 @@ class Client {
         return $this->dom;
     }
 
+    /**
+     * @param string $domPath
+     * @return Node[]
+     */
     public function select(string $domPath) {
 
         return $this->parser->getDom()->search($domPath);
     }
 
+    /**
+     * @return $this
+     */
     protected function parse() {
 
         $this->parser->loadHtml($this->dom);

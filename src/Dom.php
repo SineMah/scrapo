@@ -4,8 +4,15 @@ namespace Scrapo;
 
 class Dom {
 
+    /**
+     * @var Node[]
+     */
     public $nodes = [];
 
+    /**
+     * @param string $path
+     * @return array
+     */
     public function search($path) {
         $resultSet = [];
         $detailsPath = $this->parseNodePath($path);
@@ -22,6 +29,10 @@ class Dom {
         return $resultSet;
     }
 
+    /**
+     * @param string $path
+     * @return array
+     */
     protected function parseNodePath($path) {
         $segments = explode('>', $path);
 
@@ -37,6 +48,10 @@ class Dom {
         ];
     }
 
+    /**
+     * @param $string
+     * @return bool|string|null
+     */
     protected function getCleanPart($string) {
         $positions = [];
         $posHash = strpos($string, '#');
@@ -67,6 +82,10 @@ class Dom {
         return $string;
     }
 
+    /**
+     * @param $string
+     * @return bool|string|null
+     */
     protected function getIdPart($string) {
         $id = null;
         $posHash = $posHash = strpos($string, '#');
@@ -87,6 +106,10 @@ class Dom {
         return $id;
     }
 
+    /**
+     * @param $string
+     * @return array
+     */
     protected function getClassPart($string) {
         $cnt = substr_count($string, '.');
         $pos = 0;
@@ -112,6 +135,11 @@ class Dom {
         return $classes;
     }
 
+    /**
+     * @param $searchDetails
+     * @param $details
+     * @return bool
+     */
     protected function compare($searchDetails, $details) {
         $match = false;
 
