@@ -51,13 +51,27 @@ class Client {
     }
 
     /**
+     * @param string $html
+     * @return Dom|string|null
+     */
+    public function setHtml(string $html) {
+
+        $this->dom = $html;
+        // $this->dom = file_get_contents(__DIR__ . '/../dom_example.html');
+
+        $this->parse();
+
+        return $this->dom;
+    }
+
+    /**
      * @param String $url
      * @param String $method
      * @param array $auth
      * @return null|string;
      * @throws
      */
-    public function fetch(string $url, String $method = 'GET', Array $auth = []) {
+    public function fetch(string $url, string $method = 'GET', Array $auth = []) {
         $client = new \GuzzleHttp\Client();
         $options = [
             'headers' => [
@@ -75,12 +89,7 @@ class Client {
         $response = $client->send($request, $options);
         // $response = $client->request($method, $url, $options);
 
-        $this->dom = (string) $response->getBody();
-        // $this->dom = file_get_contents(__DIR__ . '/../dom_example.html');
-
-        $this->parse();
-
-        return $this->dom;
+        return $this->setHtml((string) $response->getBody());
     }
 
     /**

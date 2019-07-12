@@ -6,10 +6,20 @@ String logic is used over regular expressions. The default Parser uses `DOMDocum
 
 ## Usage
 
+### Load DOM from URL
 ```php
 client = new \Scrapo\Client();
 
 $res = $client->fetch('https://example.com/');
+
+$results = $client->select('a.imALink');
+```
+
+### Set HTML as string
+```php
+client = new \Scrapo\Client();
+
+$client->setHtml('<div>...</div>');
 
 $results = $client->select('a.imALink');
 ```
