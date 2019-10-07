@@ -28,7 +28,7 @@ $results = $client->select('a.imALink');
 The result consists an array of `Scrapo\Node` objects. 
 
 ## Alternative Parser
-Make sure your parser holds holds the the attribute `dom` which is basically `Scrapo\Dom`.
+Make sure your parser holds the the attribute `dom` which is basically `Scrapo\Dom`.
 ```php
 class MyParser implements ParserInterface {
 ...
